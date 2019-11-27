@@ -1,18 +1,13 @@
 package lk.ijse.dep.rcrmoto.business.custom.impl;
 
-import lk.ijse.dep.rcrmoto.DB.HibernateUtil;
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.ItemBO;
 import lk.ijse.dep.rcrmoto.dao.DAOFactory;
 import lk.ijse.dep.rcrmoto.dao.DAOTypes;
 import lk.ijse.dep.rcrmoto.dao.custom.ItemDAO;
-import lk.ijse.dep.rcrmoto.dao.custom.impl.CustomerDAOImpl;
 import lk.ijse.dep.rcrmoto.dto.ItemDTO;
 import lk.ijse.dep.rcrmoto.entity.Category;
 import lk.ijse.dep.rcrmoto.entity.Item;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;

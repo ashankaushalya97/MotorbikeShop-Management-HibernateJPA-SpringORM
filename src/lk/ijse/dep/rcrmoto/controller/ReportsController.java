@@ -35,9 +35,9 @@ import java.util.Map;
 public class ReportsController {
 
     public AnchorPane reportsPane;
-    CustomerBO customerBO = AppInitializer.ctx.getBean(CustomerBO.class);
-    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
-    DeliveryBO deliveryBO = AppInitializer.ctx.getBean(DeliveryBO.class);
+    CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
+    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
+    DeliveryBO deliveryBO = BOFactory.getInstance().getBO(BOTypes.DELIVERY);
 
     @FXML
     private void playMouseExitAnimation(MouseEvent event) {

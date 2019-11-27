@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class InventorySearchController {
     public JFXTextField txtSearch;
     public TableView<ItemTM> tbleInventory;
-    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
+    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
 
     public void initialize(){
 

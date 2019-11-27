@@ -50,10 +50,10 @@ public class OrderController {
     public List<ItemDTO> allItems;
     public TableView<OrderTM> tbleOrders;
     public JFXButton btnNew;
-    OrderBO orderBO = AppInitializer.ctx.getBean(OrderBO.class);
-    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
-    CategoryBO categoryBO = AppInitializer.ctx.getBean(CategoryBO.class);
-    CustomerBO customerBO = AppInitializer.ctx.getBean(CustomerBO.class);
+    OrderBO orderBO = BOFactory.getInstance().getBO(BOTypes.ORDER);
+    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
+    CategoryBO categoryBO = BOFactory.getInstance().getBO(BOTypes.CATEGORY);
+    CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
     double total=0;
     boolean itemCheck=true;
 
@@ -374,11 +374,7 @@ public class OrderController {
                 }
             }
             System.out.println(customerId);
-            boolean result = orderBO.placeOrder(new OrderDTO(txtID.getText(),date,customerId,orderDetails));
-            System.out.println(result);
-            if(!result){
-                throw new RuntimeException("Something went wrong!");
-            }
+            orderBO.placeOrder(new OrderDTO(txtID.getText(),date,customerId,orderDetails));
 
 //            for (OrderTM item : tbleOrders.getItems()) {
 //                for (ItemDTO allItem : allItems) {

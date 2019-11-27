@@ -21,7 +21,7 @@ public class JPAUtil {
 
     private static  EntityManagerFactory buildEntityManagerFactory(){
 
-        File propFile  = new File("pkg1/src/application.properties");
+        File propFile  = new File("pckg1/src/application.properties");
         try (FileInputStream fis =  new FileInputStream(propFile)){
             Properties properties = new Properties();
             properties.load(fis);
@@ -33,7 +33,7 @@ public class JPAUtil {
             properties.setProperty("javax.persistence.jdbc.user", username);
             properties.setProperty("javax.persistence.jdbc.password", password);
 
-            return Persistence.createEntityManagerFactory("dep4",properties);
+            return Persistence.createEntityManagerFactory("deppo",properties);
         }catch (Exception e){
             Logger.getLogger("lk.ijse.dep.pos.Hibernate.HibernateUtil").log(Level.SEVERE,null,e);
             System.exit(2);

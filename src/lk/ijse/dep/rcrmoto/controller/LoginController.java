@@ -30,7 +30,7 @@ public class LoginController {
     public static Stage stage;
     public AnchorPane loginPane;
     public JFXPasswordField txtPassword;
-    LoginBO loginBO = AppInitializer.ctx.getBean(LoginBO.class);
+    LoginBO loginBO = BOFactory.getInstance().getBO(BOTypes.LOGIN);
 
     public void btnLogin_OnAction(ActionEvent actionEvent)  {
         if(txtUsername.getText().equals(null) || txtPassword.getText().equals(null) || txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()){

@@ -37,8 +37,8 @@ public class InventoryController {
     public JFXComboBox comboCategory;
     public JFXTextField txtBuyPrice;
     List<CategoryDTO> categories;
-    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
-    CategoryBO categoryBO = AppInitializer.ctx.getBean(CategoryBO.class);
+    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
+    CategoryBO categoryBO = BOFactory.getInstance().getBO(BOTypes.CATEGORY);
     private static DecimalFormat df = new DecimalFormat("#.##");
 
     public void initialize(){

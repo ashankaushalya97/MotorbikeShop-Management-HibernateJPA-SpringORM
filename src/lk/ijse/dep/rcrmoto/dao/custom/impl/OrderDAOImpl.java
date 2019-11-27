@@ -10,6 +10,6 @@ public class OrderDAOImpl extends CrudDAOImpl<Orders,String> implements OrdersDA
 
     @Override
     public String getLastOrderId() throws Exception {
-        return (String) entityManager.createNativeQuery("SELECT orderId FROM orders ORDER BY orderId DESC LIMIT 1").getSingleResult();
+        return (String) entityManager.createNativeQuery("SELECT order_id FROM Orders ORDER BY order_id DESC LIMIT 1").getSingleResult();
     }
 }

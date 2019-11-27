@@ -1,6 +1,5 @@
 package lk.ijse.dep.rcrmoto;
 
-import lk.ijse.dep.rcrmoto.DB.HibernateUtil;
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.controller.LoginController;
 import javafx.application.Application;
@@ -10,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.net.URL;
 import java.util.logging.FileHandler;
@@ -20,7 +18,6 @@ import java.util.logging.SimpleFormatter;
 
 public class AppInitializer extends Application {
 
-    public static AnnotationConfigApplicationContext ctx;
     public static void main(String[] args) {
 
         launch(args);

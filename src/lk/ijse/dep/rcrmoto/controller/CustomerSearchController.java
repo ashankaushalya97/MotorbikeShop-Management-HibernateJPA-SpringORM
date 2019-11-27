@@ -22,7 +22,7 @@ public class CustomerSearchController {
 
     public TableView<CustomerTM> tbleCustomer;
     public JFXTextField txtSearch;
-    CustomerBO customerBO = AppInitializer.ctx.getBean(CustomerBO.class);
+    CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
 
     public void initialize(){
 

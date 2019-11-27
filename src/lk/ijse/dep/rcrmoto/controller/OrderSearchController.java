@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class OrderSearchController {
     public TableView<SearchOrderTM> tblOrder;
     public JFXTextField txtSearch;
-    OrderBO orderBO = AppInitializer.ctx.getBean(OrderBO.class);
+    OrderBO orderBO = BOFactory.getInstance().getBO(BOTypes.ORDER);
 
     public void initialize(){
 

@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class DeliverySearchController {
     public TableView<DeliveryTM> tblDelivery;
     public JFXTextField txtSearch;
-    DeliveryBO deliveryBO = AppInitializer.ctx.getBean(DeliveryBO.class);
+    DeliveryBO deliveryBO = BOFactory.getInstance().getBO(BOTypes.DELIVERY);
     public void initialize(){
         tblDelivery.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("deliveryId"));
         tblDelivery.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("orderId"));

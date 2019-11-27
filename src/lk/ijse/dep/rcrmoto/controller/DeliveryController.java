@@ -33,8 +33,8 @@ public class DeliveryController {
     public JFXTextField txtID;
     public JFXComboBox<String> comboOrderID;
     public JFXComboBox<String> comboStates;
-    OrderBO orderBO = AppInitializer.ctx.getBean(OrderBO.class);
-    DeliveryBO deliveryBO = AppInitializer.ctx.getBean(DeliveryBO.class);
+    OrderBO orderBO = BOFactory.getInstance().getBO(BOTypes.ORDER);
+    DeliveryBO deliveryBO = BOFactory.getInstance().getBO(BOTypes.DELIVERY);
     public boolean checkOrderID=true;
 
     public void initialize(){

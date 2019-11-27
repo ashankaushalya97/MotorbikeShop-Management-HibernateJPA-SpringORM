@@ -1,6 +1,5 @@
 package lk.ijse.dep.rcrmoto.business.custom.impl;
 
-import lk.ijse.dep.rcrmoto.DB.HibernateUtil;
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.DeliveryBO;
 import lk.ijse.dep.rcrmoto.dao.DAOFactory;
@@ -9,9 +8,6 @@ import lk.ijse.dep.rcrmoto.dao.custom.DeliveryDAO;
 import lk.ijse.dep.rcrmoto.dto.DeliveryDTO;
 import lk.ijse.dep.rcrmoto.entity.Delivery;
 import lk.ijse.dep.rcrmoto.entity.DeliveryPK;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;

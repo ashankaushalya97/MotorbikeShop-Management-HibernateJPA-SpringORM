@@ -1,6 +1,8 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
+import lk.ijse.dep.rcrmoto.business.BOFactory;
+import lk.ijse.dep.rcrmoto.business.BOTypes;
 import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -25,7 +27,7 @@ public class CustomerController {
     public JFXTextField txtContact;
     public TableView<CustomerTM> tbleCustomer;
     public JFXButton btnSave;
-    CustomerBO customerBO = AppInitializer.ctx.getBean(CustomerBO.class);
+    CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
 
     public void initialize(){
         tbleCustomer.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("customerId"));

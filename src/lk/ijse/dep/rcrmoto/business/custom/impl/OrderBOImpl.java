@@ -1,6 +1,5 @@
 package lk.ijse.dep.rcrmoto.business.custom.impl;
 
-import lk.ijse.dep.rcrmoto.DB.HibernateUtil;
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.OrderBO;
 import lk.ijse.dep.rcrmoto.dao.DAOFactory;
@@ -13,19 +12,16 @@ import lk.ijse.dep.rcrmoto.dto.OrderDTO;
 import lk.ijse.dep.rcrmoto.dto.OrderDTO2;
 import lk.ijse.dep.rcrmoto.dto.OrderDetailDTO;
 import lk.ijse.dep.rcrmoto.entity.*;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderBOImpl implements OrderBO {
-    OrdersDAO ordersDAO;
-    OrderDetailDAO orderDetailDAO;
-    ItemDAO itemDAO;
-    QueryDAO queryDAO;
+    OrdersDAO ordersDAO = DAOFactory.getInstance().getDAO(DAOTypes.ORDERS);
+    OrderDetailDAO orderDetailDAO  = DAOFactory.getInstance().getDAO(DAOTypes.ORDERDETAIL);
+    ItemDAO itemDAO = DAOFactory.getInstance().getDAO(DAOTypes.ITEM);
+    QueryDAO queryDAO = DAOFactory.getInstance().getDAO(DAOTypes.QUERY);
 
     @Override
     public String getLastOrderId() throws Exception {

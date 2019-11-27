@@ -44,6 +44,6 @@ public class CrudDAOImpl<T extends SuperEntity,ID extends Serializable> implemen
 
     @Override
     public void setEntityManager(EntityManager entityManager) {
-
+        this.entityManager=entityManager;
     }
 }
