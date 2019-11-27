@@ -1,6 +1,7 @@
 package lk.ijse.dep.rcrmoto.business.custom.impl;
 
 import lk.ijse.dep.rcrmoto.DB.HibernateUtil;
+import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.LoginBO;
 import lk.ijse.dep.rcrmoto.dao.DAOFactory;
 import lk.ijse.dep.rcrmoto.dao.DAOTypes;
@@ -11,20 +12,22 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManager;
+
 
 public class LoginBOImpl implements LoginBO {
-    @Autowired
-    AdminDAO adminDAO;
+    AdminDAO adminDAO=DAOFactory.getInstance().getDAO(DAOTypes.ADMIN);
 
     @Override
     public boolean authentication(LoginDTO loginDTO) throws Exception {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()){
-            adminDAO.setSession(session);
-            session.beginTransaction();
+        EntityManager em = JPAUtil.getEmf().createEntityManager();
+        adminDAO.setEntityManager(em);
+        em.getTransaction().begin();
             boolean authentication = adminDAO.authentication(new Admin(loginDTO.getUsename(), loginDTO.getPassword()));
-            session.getTransaction().commit();
-            return authentication;
-        }
+
+        em.getTransaction().commit();
+        em.close();
+        return authentication;
     }
 
 }
