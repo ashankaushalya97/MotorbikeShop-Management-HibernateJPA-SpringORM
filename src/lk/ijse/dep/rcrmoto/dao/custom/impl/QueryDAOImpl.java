@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@Component
 public class QueryDAOImpl implements QueryDAO {
 
     private EntityManager entityManager;

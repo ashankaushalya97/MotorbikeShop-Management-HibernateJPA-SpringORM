@@ -6,7 +6,7 @@ import lk.ijse.dep.rcrmoto.entity.Item;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class ItemDAOImpl extends CrudDAOImpl<Item,String> implements ItemDAO {
 
     @Override

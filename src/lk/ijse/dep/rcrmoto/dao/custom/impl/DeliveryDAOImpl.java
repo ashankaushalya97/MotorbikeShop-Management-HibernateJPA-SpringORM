@@ -7,7 +7,7 @@ import lk.ijse.dep.rcrmoto.entity.DeliveryPK;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class DeliveryDAOImpl extends CrudDAOImpl<Delivery,DeliveryPK> implements DeliveryDAO {
 
     @Override

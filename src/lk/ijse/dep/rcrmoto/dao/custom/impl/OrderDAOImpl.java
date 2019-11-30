@@ -5,7 +5,7 @@ import lk.ijse.dep.rcrmoto.dao.custom.OrdersDAO;
 import lk.ijse.dep.rcrmoto.entity.Orders;
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class OrderDAOImpl extends CrudDAOImpl<Orders,String> implements OrdersDAO {
 
     @Override

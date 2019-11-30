@@ -5,7 +5,7 @@ import lk.ijse.dep.rcrmoto.dao.custom.AdminDAO;
 import lk.ijse.dep.rcrmoto.entity.Admin;
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class AdminDAOImpl extends CrudDAOImpl<Admin,String> implements AdminDAO {
 
     @Override

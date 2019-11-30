@@ -6,7 +6,7 @@ import lk.ijse.dep.rcrmoto.entity.OrderDetail;
 import lk.ijse.dep.rcrmoto.entity.OrderDetailPK;
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class OrderDetailDAOImpl extends CrudDAOImpl<OrderDetail,OrderDetailPK> implements OrderDetailDAO {
 
 }
