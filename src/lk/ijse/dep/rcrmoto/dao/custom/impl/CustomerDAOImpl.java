@@ -5,6 +5,7 @@ import lk.ijse.dep.rcrmoto.dao.custom.CustomerDAO;
 import lk.ijse.dep.rcrmoto.entity.Customer;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Query;
 import java.util.List;
 
 @Component
@@ -12,8 +13,10 @@ public class CustomerDAOImpl extends CrudDAOImpl<Customer,String> implements Cus
 
     @Override
     public String getLastCustomerId() throws Exception {
-       return (String) entityManager.createNativeQuery("SELECT customer_id FROM Customer order by customer_id desc LIMIT 1").getSingleResult();
+        Query nativeQuery = entityManager.createNativeQuery("SELECT customer_id FROM Customer order by customer_id desc LIMIT 1");
+        return nativeQuery.getResultList().size() > 0 ? (String) nativeQuery.getSingleResult() : null;
     }
+
 
     @Override
     public List<Customer> searchCustomers(String text) throws Exception {

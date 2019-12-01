@@ -5,13 +5,15 @@ import lk.ijse.dep.rcrmoto.dao.custom.ItemDAO;
 import lk.ijse.dep.rcrmoto.entity.Item;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Query;
 import java.util.List;
 @Component
 public class ItemDAOImpl extends CrudDAOImpl<Item,String> implements ItemDAO {
 
     @Override
     public String getLastItemId() throws Exception {
-        return (String) entityManager.createNativeQuery("SELECT item_id FROM Item ORDER BY item_id DESC LIMIT 1").getSingleResult();
+        Query nativeQuery = entityManager.createNativeQuery("SELECT item_id FROM Item ORDER BY item_id DESC LIMIT 1");
+        return nativeQuery.getResultList().size() > 0 ? (String) nativeQuery.getSingleResult() : null;
     }
 
     @Override
