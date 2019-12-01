@@ -7,11 +7,12 @@ import lk.ijse.dep.rcrmoto.dto.ItemDTO;
 import lk.ijse.dep.rcrmoto.entity.Category;
 import lk.ijse.dep.rcrmoto.entity.Item;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class ItemBOImpl implements ItemBO {
     @Autowired
     ItemDAO itemDAO;

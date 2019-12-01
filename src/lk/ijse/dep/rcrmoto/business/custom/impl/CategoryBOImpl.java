@@ -6,12 +6,13 @@ import lk.ijse.dep.rcrmoto.dao.custom.CategoryDAO;
 import lk.ijse.dep.rcrmoto.dto.CategoryDTO;
 import lk.ijse.dep.rcrmoto.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Component
 public class CategoryBOImpl implements CategoryBO {
 
     @Autowired

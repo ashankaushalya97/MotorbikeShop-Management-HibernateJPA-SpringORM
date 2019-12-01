@@ -6,12 +6,13 @@ import lk.ijse.dep.rcrmoto.dao.custom.CustomerDAO;
 import lk.ijse.dep.rcrmoto.dto.CustomerDTO;
 import lk.ijse.dep.rcrmoto.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Component
 public class CustomerBOImpl implements CustomerBO {
 
     @Autowired

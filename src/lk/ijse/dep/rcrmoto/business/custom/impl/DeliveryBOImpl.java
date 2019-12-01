@@ -7,11 +7,12 @@ import lk.ijse.dep.rcrmoto.dto.DeliveryDTO;
 import lk.ijse.dep.rcrmoto.entity.Delivery;
 import lk.ijse.dep.rcrmoto.entity.DeliveryPK;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class DeliveryBOImpl implements DeliveryBO {
 
     @Autowired

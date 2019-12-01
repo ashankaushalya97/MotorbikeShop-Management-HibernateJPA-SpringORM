@@ -11,11 +11,12 @@ import lk.ijse.dep.rcrmoto.dto.OrderDTO2;
 import lk.ijse.dep.rcrmoto.dto.OrderDetailDTO;
 import lk.ijse.dep.rcrmoto.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class OrderBOImpl implements OrderBO {
     @Autowired
     OrdersDAO ordersDAO;

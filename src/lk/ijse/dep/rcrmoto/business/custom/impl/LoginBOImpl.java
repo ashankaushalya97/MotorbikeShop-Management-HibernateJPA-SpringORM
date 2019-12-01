@@ -6,10 +6,11 @@ import lk.ijse.dep.rcrmoto.dao.custom.AdminDAO;
 import lk.ijse.dep.rcrmoto.dto.LoginDTO;
 import lk.ijse.dep.rcrmoto.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 
-
+@Component
 public class LoginBOImpl implements LoginBO {
 
     @Autowired
