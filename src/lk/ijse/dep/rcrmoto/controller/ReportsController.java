@@ -1,8 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
 import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
 import lk.ijse.dep.rcrmoto.business.custom.DeliveryBO;
 import lk.ijse.dep.rcrmoto.business.custom.ItemBO;
@@ -35,9 +33,9 @@ import java.util.Map;
 public class ReportsController {
 
     public AnchorPane reportsPane;
-    CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
-    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
-    DeliveryBO deliveryBO = BOFactory.getInstance().getBO(BOTypes.DELIVERY);
+    CustomerBO customerBO = AppInitializer.ctx.getBean(CustomerBO.class);
+    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
+    DeliveryBO deliveryBO = AppInitializer.ctx.getBean(DeliveryBO.class);
 
     @FXML
     private void playMouseExitAnimation(MouseEvent event) {

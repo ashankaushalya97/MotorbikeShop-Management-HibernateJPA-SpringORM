@@ -1,9 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
-import lk.ijse.dep.rcrmoto.business.custom.CategoryBO;
 import lk.ijse.dep.rcrmoto.business.custom.LoginBO;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -30,7 +27,7 @@ public class LoginController {
     public static Stage stage;
     public AnchorPane loginPane;
     public JFXPasswordField txtPassword;
-    LoginBO loginBO = BOFactory.getInstance().getBO(BOTypes.LOGIN);
+    LoginBO loginBO = AppInitializer.ctx.getBean(LoginBO.class);
 
     public void btnLogin_OnAction(ActionEvent actionEvent)  {
         if(txtUsername.getText().equals(null) || txtPassword.getText().equals(null) || txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()){

@@ -1,8 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
 import lk.ijse.dep.rcrmoto.business.custom.CategoryBO;
 import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
 import lk.ijse.dep.rcrmoto.business.custom.ItemBO;
@@ -50,10 +48,10 @@ public class OrderController {
     public List<ItemDTO> allItems;
     public TableView<OrderTM> tbleOrders;
     public JFXButton btnNew;
-    OrderBO orderBO = BOFactory.getInstance().getBO(BOTypes.ORDER);
-    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
-    CategoryBO categoryBO = BOFactory.getInstance().getBO(BOTypes.CATEGORY);
-    CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
+    OrderBO orderBO = AppInitializer.ctx.getBean(OrderBO.class);
+    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
+    CategoryBO categoryBO = AppInitializer.ctx.getBean(CategoryBO.class);
+    CustomerBO customerBO = AppInitializer.ctx.getBean(CustomerBO.class);
     double total=0;
     boolean itemCheck=true;
 

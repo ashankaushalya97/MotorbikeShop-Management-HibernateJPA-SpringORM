@@ -1,9 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
-import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
 import lk.ijse.dep.rcrmoto.business.custom.DeliveryBO;
 import lk.ijse.dep.rcrmoto.business.custom.OrderBO;
 import com.jfoenix.controls.JFXButton;
@@ -33,8 +30,8 @@ public class DeliveryController {
     public JFXTextField txtID;
     public JFXComboBox<String> comboOrderID;
     public JFXComboBox<String> comboStates;
-    OrderBO orderBO = BOFactory.getInstance().getBO(BOTypes.ORDER);
-    DeliveryBO deliveryBO = BOFactory.getInstance().getBO(BOTypes.DELIVERY);
+    OrderBO orderBO = AppInitializer.ctx.getBean(OrderBO.class);
+    DeliveryBO deliveryBO = AppInitializer.ctx.getBean(DeliveryBO.class);
     public boolean checkOrderID=true;
 
     public void initialize(){

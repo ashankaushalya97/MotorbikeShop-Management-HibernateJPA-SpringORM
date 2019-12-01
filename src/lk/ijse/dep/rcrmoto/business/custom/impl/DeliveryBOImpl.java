@@ -2,12 +2,11 @@ package lk.ijse.dep.rcrmoto.business.custom.impl;
 
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.DeliveryBO;
-import lk.ijse.dep.rcrmoto.dao.DAOFactory;
-import lk.ijse.dep.rcrmoto.dao.DAOTypes;
 import lk.ijse.dep.rcrmoto.dao.custom.DeliveryDAO;
 import lk.ijse.dep.rcrmoto.dto.DeliveryDTO;
 import lk.ijse.dep.rcrmoto.entity.Delivery;
 import lk.ijse.dep.rcrmoto.entity.DeliveryPK;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
@@ -15,7 +14,8 @@ import java.util.List;
 
 public class DeliveryBOImpl implements DeliveryBO {
 
-    DeliveryDAO deliveryDAO= DAOFactory.getInstance().getDAO(DAOTypes.DELIVERY);
+    @Autowired
+    DeliveryDAO deliveryDAO;
     @Override
     public void saveDelivery(DeliveryDTO delivery) throws Exception {
         EntityManager em = JPAUtil.getEmf().createEntityManager();

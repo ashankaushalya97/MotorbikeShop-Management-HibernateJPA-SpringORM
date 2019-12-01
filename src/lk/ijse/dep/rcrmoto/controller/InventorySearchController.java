@@ -1,9 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
-import lk.ijse.dep.rcrmoto.business.custom.CategoryBO;
 import lk.ijse.dep.rcrmoto.business.custom.ItemBO;
 import com.jfoenix.controls.JFXTextField;
 import lk.ijse.dep.rcrmoto.dto.ItemDTO;
@@ -22,7 +19,7 @@ import java.util.logging.Logger;
 public class InventorySearchController {
     public JFXTextField txtSearch;
     public TableView<ItemTM> tbleInventory;
-    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
+    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
 
     public void initialize(){
 

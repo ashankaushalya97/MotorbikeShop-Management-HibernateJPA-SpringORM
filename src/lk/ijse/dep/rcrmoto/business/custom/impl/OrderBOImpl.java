@@ -2,8 +2,6 @@ package lk.ijse.dep.rcrmoto.business.custom.impl;
 
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.OrderBO;
-import lk.ijse.dep.rcrmoto.dao.DAOFactory;
-import lk.ijse.dep.rcrmoto.dao.DAOTypes;
 import lk.ijse.dep.rcrmoto.dao.custom.ItemDAO;
 import lk.ijse.dep.rcrmoto.dao.custom.OrderDetailDAO;
 import lk.ijse.dep.rcrmoto.dao.custom.OrdersDAO;
@@ -12,16 +10,21 @@ import lk.ijse.dep.rcrmoto.dto.OrderDTO;
 import lk.ijse.dep.rcrmoto.dto.OrderDTO2;
 import lk.ijse.dep.rcrmoto.dto.OrderDetailDTO;
 import lk.ijse.dep.rcrmoto.entity.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderBOImpl implements OrderBO {
-    OrdersDAO ordersDAO = DAOFactory.getInstance().getDAO(DAOTypes.ORDERS);
-    OrderDetailDAO orderDetailDAO  = DAOFactory.getInstance().getDAO(DAOTypes.ORDERDETAIL);
-    ItemDAO itemDAO = DAOFactory.getInstance().getDAO(DAOTypes.ITEM);
-    QueryDAO queryDAO = DAOFactory.getInstance().getDAO(DAOTypes.QUERY);
+    @Autowired
+    OrdersDAO ordersDAO;
+    @Autowired
+    OrderDetailDAO orderDetailDAO;
+    @Autowired
+    ItemDAO itemDAO;
+    @Autowired
+    QueryDAO queryDAO;
 
     @Override
     public String getLastOrderId() throws Exception {

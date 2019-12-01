@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.net.URL;
 import java.util.logging.FileHandler;
@@ -18,6 +19,7 @@ import java.util.logging.SimpleFormatter;
 
 public class AppInitializer extends Application {
 
+    public static AnnotationConfigApplicationContext ctx;
     public static void main(String[] args) {
 
         launch(args);
@@ -29,13 +31,18 @@ public class AppInitializer extends Application {
 //            e.printStackTrace();
 //        }
         System.out.println("Shutting down the connection");
-        JPAUtil.getEmf().close();
+//        JPAUtil.getEmf().close();
+
     }
 
     @Override
     public void start(Stage primaryStage){
 
         try{
+            ctx = new AnnotationConfigApplicationContext();
+            ctx.register(AppConfig.class);
+            ctx.refresh();
+
             // Let's setup the root logger
             Logger rootLogger = Logger.getLogger("");
             FileHandler fileHandler = new FileHandler("error.log", true);

@@ -1,10 +1,7 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
 import lk.ijse.dep.rcrmoto.business.custom.CategoryBO;
-import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
 import lk.ijse.dep.rcrmoto.business.custom.ItemBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -37,8 +34,8 @@ public class InventoryController {
     public JFXComboBox comboCategory;
     public JFXTextField txtBuyPrice;
     List<CategoryDTO> categories;
-    ItemBO itemBO = BOFactory.getInstance().getBO(BOTypes.ITEM);
-    CategoryBO categoryBO = BOFactory.getInstance().getBO(BOTypes.CATEGORY);
+    ItemBO itemBO = AppInitializer.ctx.getBean(ItemBO.class);
+    CategoryBO categoryBO = AppInitializer.ctx.getBean(CategoryBO.class);
     private static DecimalFormat df = new DecimalFormat("#.##");
 
     public void initialize(){

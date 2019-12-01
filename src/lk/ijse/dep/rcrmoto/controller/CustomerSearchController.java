@@ -1,8 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
 import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
 import com.jfoenix.controls.JFXTextField;
 import lk.ijse.dep.rcrmoto.dto.CustomerDTO;
@@ -22,7 +20,7 @@ public class CustomerSearchController {
 
     public TableView<CustomerTM> tbleCustomer;
     public JFXTextField txtSearch;
-    CustomerBO customerBO = BOFactory.getInstance().getBO(BOTypes.CUSTOMER);
+    CustomerBO customerBO = AppInitializer.ctx.getBean(CustomerBO.class);
 
     public void initialize(){
 

@@ -2,19 +2,19 @@ package lk.ijse.dep.rcrmoto.business.custom.impl;
 
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.ItemBO;
-import lk.ijse.dep.rcrmoto.dao.DAOFactory;
-import lk.ijse.dep.rcrmoto.dao.DAOTypes;
 import lk.ijse.dep.rcrmoto.dao.custom.ItemDAO;
 import lk.ijse.dep.rcrmoto.dto.ItemDTO;
 import lk.ijse.dep.rcrmoto.entity.Category;
 import lk.ijse.dep.rcrmoto.entity.Item;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemBOImpl implements ItemBO {
-    ItemDAO itemDAO= DAOFactory.getInstance().getDAO(DAOTypes.ITEM);
+    @Autowired
+    ItemDAO itemDAO;
 
     @Override
     public void saveItem(ItemDTO item) throws Exception {

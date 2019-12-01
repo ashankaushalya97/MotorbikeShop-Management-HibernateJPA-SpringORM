@@ -2,11 +2,10 @@ package lk.ijse.dep.rcrmoto.business.custom.impl;
 
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
-import lk.ijse.dep.rcrmoto.dao.DAOFactory;
-import lk.ijse.dep.rcrmoto.dao.DAOTypes;
 import lk.ijse.dep.rcrmoto.dao.custom.CustomerDAO;
 import lk.ijse.dep.rcrmoto.dto.CustomerDTO;
 import lk.ijse.dep.rcrmoto.entity.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
@@ -15,7 +14,8 @@ import java.util.List;
 
 public class CustomerBOImpl implements CustomerBO {
 
-    CustomerDAO customerDAO=DAOFactory.getInstance().getDAO(DAOTypes.CUSTOMER);
+    @Autowired
+    CustomerDAO customerDAO;
 
     @Override
     public void saveCustomer(CustomerDTO customer) throws Exception {

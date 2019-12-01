@@ -1,8 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
 import lk.ijse.dep.rcrmoto.business.custom.OrderBO;
 import com.jfoenix.controls.JFXTextField;
 import lk.ijse.dep.rcrmoto.dto.OrderDTO2;
@@ -21,8 +19,7 @@ import java.util.logging.Logger;
 public class OrderSearchController {
     public TableView<SearchOrderTM> tblOrder;
     public JFXTextField txtSearch;
-    OrderBO orderBO = BOFactory.getInstance().getBO(BOTypes.ORDER);
-
+    OrderBO orderBO = AppInitializer.ctx.getBean(OrderBO.class);
     public void initialize(){
 
         tblOrder.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("orderId"));

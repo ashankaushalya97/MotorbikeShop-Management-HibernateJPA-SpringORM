@@ -1,9 +1,6 @@
 package lk.ijse.dep.rcrmoto.controller;
 
 import lk.ijse.dep.rcrmoto.AppInitializer;
-import lk.ijse.dep.rcrmoto.business.BOFactory;
-import lk.ijse.dep.rcrmoto.business.BOTypes;
-import lk.ijse.dep.rcrmoto.business.custom.CustomerBO;
 import lk.ijse.dep.rcrmoto.business.custom.DeliveryBO;
 import com.jfoenix.controls.JFXTextField;
 import lk.ijse.dep.rcrmoto.dto.DeliveryDTO;
@@ -22,7 +19,7 @@ import java.util.logging.Logger;
 public class DeliverySearchController {
     public TableView<DeliveryTM> tblDelivery;
     public JFXTextField txtSearch;
-    DeliveryBO deliveryBO = BOFactory.getInstance().getBO(BOTypes.DELIVERY);
+    DeliveryBO deliveryBO = AppInitializer.ctx.getBean(DeliveryBO.class);
     public void initialize(){
         tblDelivery.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("deliveryId"));
         tblDelivery.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("orderId"));

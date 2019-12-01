@@ -2,17 +2,18 @@ package lk.ijse.dep.rcrmoto.business.custom.impl;
 
 import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.business.custom.LoginBO;
-import lk.ijse.dep.rcrmoto.dao.DAOFactory;
-import lk.ijse.dep.rcrmoto.dao.DAOTypes;
 import lk.ijse.dep.rcrmoto.dao.custom.AdminDAO;
 import lk.ijse.dep.rcrmoto.dto.LoginDTO;
 import lk.ijse.dep.rcrmoto.entity.Admin;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 
 
 public class LoginBOImpl implements LoginBO {
-    AdminDAO adminDAO=DAOFactory.getInstance().getDAO(DAOTypes.ADMIN);
+
+    @Autowired
+    AdminDAO adminDAO;
 
     @Override
     public boolean authentication(LoginDTO loginDTO) throws Exception {
