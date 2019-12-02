@@ -4,13 +4,16 @@ import lk.ijse.dep.rcrmoto.dao.custom.QueryDAO;
 import lk.ijse.dep.rcrmoto.entity.CustomEntity;
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Component
+@Repository
 public class QueryDAOImpl implements QueryDAO {
 
+    @PersistenceContext
     private EntityManager entityManager;
 
     @Override
@@ -25,8 +28,4 @@ public class QueryDAOImpl implements QueryDAO {
             .setParameter(1,text).setParameter(2,text).setParameter(3,text).setParameter(4,text).setParameter(5,text).getResultList();
     }
 
-    @Override
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager=entityManager;
-    }
 }

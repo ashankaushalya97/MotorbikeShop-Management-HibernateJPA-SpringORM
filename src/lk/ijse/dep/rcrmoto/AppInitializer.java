@@ -1,6 +1,5 @@
 package lk.ijse.dep.rcrmoto;
 
-import lk.ijse.dep.rcrmoto.DB.JPAUtil;
 import lk.ijse.dep.rcrmoto.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +31,7 @@ public class AppInitializer extends Application {
 //        }
         System.out.println("Shutting down the connection");
 //        JPAUtil.getEmf().close();
-
+        ctx.close();
     }
 
     @Override

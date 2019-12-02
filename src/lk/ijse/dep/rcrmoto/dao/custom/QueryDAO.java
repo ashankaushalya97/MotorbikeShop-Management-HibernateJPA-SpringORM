@@ -12,6 +12,5 @@ public interface QueryDAO extends SuperDAO {
 
     List<CustomEntity> searchOrder(String text)throws Exception;
 
-    void setEntityManager(EntityManager entityManager);
 
 }
